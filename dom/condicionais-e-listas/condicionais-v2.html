@@ -9,8 +9,10 @@
 <body>
     <div id="app">
         <p v-if="logado">Usuário Logado: {{nome}}</p>
+        <p v-else-if="anonimo">Navegando como anônimo</p>
         <p v-else>Nenhum usuário Logado</p>
         <button @click="logado = !logado">{{logado ? 'sair' : 'Entrar'}}</button>
+        <input type="checkbox" v-model="anonimo">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script>
@@ -18,7 +20,8 @@
             el: '#app',
             data:{
                 nome:'joazin',
-                logado: false
+                logado: false,
+                anonimo: false
             }
         })
     </script>
